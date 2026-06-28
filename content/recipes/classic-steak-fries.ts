@@ -1,0 +1,57 @@
+import type { Recipe } from "@/lib/types";
+
+export const classicSteakFries: Recipe = {
+  slug: "classic-steak-fries",
+  title: "Classic Steak & Fries",
+  subtitle: "Pan-seared rump, basted butter, hand-cut chips",
+  tagline: "A twenty-minute dinner for one — a cast-iron steak seared hard, basted in garlic butter with thyme, rested properly, served with hand-cut chips. Simple, primal, deeply satisfying.",
+  hero: "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1600&q=80",
+  heroAlt: "Pan-seared steak with golden hand-cut fries",
+  cuisine: "South African",
+  category: "mains",
+  methods: ["stovetop", "oven", "air-fryer", "prep", "rest"],
+  methodOptions: [
+    { method: "stovetop", label: "Steak + Oven fries", time: "20 min", temp: "med-high steak / 200 °C fries", note: "Best overall result" },
+    { method: "air-fryer", label: "Steak + Air-fryer fries", time: "18 min", temp: "med-high steak / 200 °C fries", note: "Fastest fries, crispest chips" },
+  ],
+  equipment: ["skillet", "knife", "scale", "sheet-pan"],
+  dietTags: ["high-protein", "low-carb", "gluten-free"],
+  difficulty: "intermediate",
+  servings: { base: 1, min: 1, max: 4 },
+  timeMin: { active: 20, passive: 5 },
+  ingredients: [
+    { id: "steak", name: "Rump steak (room-temp)", everyday: "1 rump steak (~200 g)", qty: 1, unit: "piece", gram: 200, group: "protein", localProduct: "Woolworths aged rump" },
+    { id: "potatoes", name: "Potatoes, maris piper or similar", everyday: "2 large potatoes", qty: 2, unit: "piece", gram: 400, group: "produce" },
+    { id: "oil", name: "Olive oil", everyday: "a glug", qty: 2, unit: "tbsp", gram: 30, group: "fat" },
+    { id: "butter", name: "Butter, cold", everyday: "a thumb of butter", qty: 1, unit: "tbsp", gram: 15, group: "fat", localProduct: "Woolworths salted butter" },
+    { id: "garlic", name: "Garlic, crushed", everyday: "2 cloves", qty: 2, unit: "clove", gram: 8, group: "aromatic" },
+    { id: "thyme", name: "Fresh thyme sprigs", everyday: "2 sprigs", qty: 2, unit: "piece", gram: 4, group: "aromatic" },
+    { id: "salt", name: "Sea salt & black pepper", everyday: "a generous pinch", gram: null, group: "seasoning", scaling: { kind: "tapered", category: "salt" } },
+    { id: "spice", name: "Steak & chops spice", everyday: "1 tsp", qty: 1, unit: "tsp", gram: 4, group: "seasoning", optional: true, localProduct: "Ina Paarman steak & chops spice", scaling: { kind: "tapered", category: "spice" } },
+  ],
+  steps: [
+    { id: "s1", instruction: "Take the steak out 30 minutes before cooking and cut potatoes into 1 cm chips.", method: "prep", calloutIds: ["temp-meat-even", "mise-en-place"] },
+    { id: "s2", instruction: "Toss chips in oil and salt, spread on a sheet pan, and start at 200 °C.", method: "oven", durationMin: 5 },
+    { id: "s3", instruction: "Pat the steak bone-dry and season both sides with salt and spice.", method: "prep", calloutIds: ["dry-before-sear", "salt-in-layers"] },
+    { id: "s4", instruction: "Get a skillet properly hot over medium-high, then lay in the steak.", method: "stovetop", calloutIds: ["preheat-pan"] },
+    { id: "s5", instruction: "Sear 3 minutes per side for medium-rare — don't crowd the pan or move it around.", method: "stovetop", durationMin: 6, calloutIds: ["dont-crowd-pan", "sear-maillard"] },
+    { id: "s6", instruction: "Add butter, garlic, and thyme — baste for 1 minute as it foams.", method: "stovetop", durationMin: 1, calloutIds: ["mount-butter"] },
+    { id: "s7", instruction: "Rest on a board for 5 minutes while the fries finish crisping.", method: "rest", durationMin: 5, calloutIds: ["rest-meat"] },
+    { id: "s8", instruction: "Slice steak against the grain, season again, and serve with chips.", method: "prep", calloutIds: ["salt-in-layers"] },
+  ],
+  nutrition: { energyKJ: 2840, energyKcal: 679, protein_g: 52, carbs_g: 42, fat_g: 35, fibre_g: 5, sugar_g: 2, sodium_mg: 890 },
+  pairings: [
+    { type: "wine", name: "Cabernet Sauvignon", detail: "Bold and structured — stands up to the rich, beefy flavours.", kJ: 560, localPick: "Nederburg Cabernet Sauvignon" },
+    { type: "mocktail", name: "Rooibos-Ginger Sparkle", detail: "Locally grown, caffeine-free, earthy-sweet.", kJ: 45 },
+  ],
+  sides: [
+    { name: "Creamed spinach", kJ: 420, match: 89 },
+    { name: "Garlic bread", kJ: 680, match: 85 },
+    { name: "Peppercorn sauce", kJ: 540, match: 82 },
+    { name: "Side salad", kJ: 180, match: 78 },
+  ],
+  sources: [
+    { name: "Serious Eats — The Food Lab: How to Cook a Perfect Steak", url: "https://www.seriouseats.com/the-food-lab-complete-guide-to-sous-vide-steak" },
+    { name: "Woolworths Taste — Steak cuts guide", url: "https://www.woolworths.co.za/taste/Article/steak-cuts-guide" },
+  ],
+};
